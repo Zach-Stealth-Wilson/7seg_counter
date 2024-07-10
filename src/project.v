@@ -49,13 +49,14 @@ module tt_um_example (
         if (~rst_n)
             next = 8'h0;
             digit = 4'h0;
-        else if (ui_in[0] == 1'b0)
+        end else if (ui_in[0] == 1'b0) begin
             next = uo_out + 8'h1;
             digit = digit + 1'b1;
-        else if (ui_in[0] == 1'b1)
+        end else if (ui_in[0] == 1'b1) begin
             next = uo_out;
-        else
+        end else begin
             next = uo_out;
+        end
     end
     seg7 seg7(.counter(digit), .segments(led_out));
 endmodule
