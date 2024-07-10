@@ -30,7 +30,7 @@ module tt_um_example (
    // ui_in[0] = 1 = stop
   
   //assign uio_out = 0;
-  assign uio_oe  = 8'b111111111;
+  assign uio_oe  = 8'b11111111;
   assign temp1 = ui_in[7:1];
   assign temp2 = uio_in;
     
