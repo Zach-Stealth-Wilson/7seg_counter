@@ -47,11 +47,11 @@ module tt_um_example (
 
         always @(*) begin
         if (~rst_n)
-            next = 8'h0;
             digit = 4'h0;
+            next = 8'h0;
         end else if (ui_in[0] == 1'b0) begin
-            next = uo_out + 8'h1;
             digit = digit + 1'b1;
+            next = uo_out + 8'h1;
         end else if (ui_in[0] == 1'b1) begin
             next = uo_out;
         end else begin
