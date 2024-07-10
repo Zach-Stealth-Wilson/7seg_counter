@@ -21,12 +21,16 @@ module tt_um_example (
     reg [7:0] next;
     wire [6:0] temp1;
     wire [7:0] temp2;
+    reg [3:0] digit;
+    wire[6:0] led_out;
+    assign uio_out[6:0] = led_out;
+    assign uio_out[7] = 1'b0;
 
    // ui_in[0] = 0 = start
    // ui_in[0] = 1 = stop
   
-  assign uio_out = 0;
-  assign uio_oe  = 0;
+  //assign uio_out = 0;
+  // assign uio_oe  = 8'b111111111;
   assign temp1 = ui_in[7:1];
   assign temp2 = uio_in;
     
@@ -51,5 +55,5 @@ module tt_um_example (
         else
             next = uo_out;
     end
-
+    seg7 seg7(.counter(digit), .segments(led_out));
 endmodule
