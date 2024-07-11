@@ -55,10 +55,8 @@ module tt_um_example (
             digit = digit + 1'b1;
             next = uo_out + 8'h1;
         end else if (ui_in[0] == 1'b1) begin
-            digit = digit;
             next = uo_out;
         end else begin 
-            digit = digit;
             next = uo_out;
         end
     end
