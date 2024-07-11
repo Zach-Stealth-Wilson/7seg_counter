@@ -47,7 +47,7 @@ module tt_um_example (
 
         always @(*) begin
         if (~rst_n)
-           // digit = 4'h0;
+            digit = 4'h0;
             next = 8'h0;
         else if (ui_in[0] == 1'b0)
            // digit = digit + 1'b1;
