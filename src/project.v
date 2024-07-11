@@ -46,6 +46,8 @@ module tt_um_example (
     wire _unused = &{ena, temp1, temp2};
 
     always @(*) begin
+        digit = digit;
+         next = 8'h0;
         if (~rst_n) begin
             digit = 4'h0;
             next = 8'h0;
@@ -53,10 +55,10 @@ module tt_um_example (
             digit = digit + 1'b1;
             next = uo_out + 8'h1;
         end else if (ui_in[0] == 1'b1) begin
-            //digit = digit;
+            digit = digit;
             next = uo_out;
         end else begin 
-            //digit = digit;
+            digit = digit;
             next = uo_out;
         end
     end
