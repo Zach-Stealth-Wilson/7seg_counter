@@ -45,17 +45,20 @@ module tt_um_example (
     //wire _unused = &{ena, temp1[6], temp1[5], temp1[4], temp1[3], temp1[2], temp1[1], temp1[0], temp2[7], temp2[6], temp2[5], temp2[4], temp2[3], temp2[2], temp2[1], temp2[0], clk};
     wire _unused = &{ena, temp1, temp2};
 
-        always @(*) begin
-        if (~rst_n)
+    always @(*) begin
+        if (~rst_n) begin
             digit = 4'h0;
             next = 8'h0;
-        else if (ui_in[0] == 1'b0)
-           // digit = digit + 1'b1;
+        end else if (ui_in[0] == 1'b0) begin
+            digit = digit + 1'b1;
             next = uo_out + 8'h1;
-        else if (ui_in[0] == 1'b1)
+        end else if (ui_in[0] == 1'b1) begin
+            digit = digit;
             next = uo_out;
-        else
+        end else begin 
+            digit = digit;
             next = uo_out;
+        end
     end
     seg7 seg7(.counter(digit), .segments(led_out));
 endmodule
